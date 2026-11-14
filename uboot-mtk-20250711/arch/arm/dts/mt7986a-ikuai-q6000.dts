@@ -23,6 +23,26 @@
 		system_led = "green:status";
 	};
 
+	mtd-layout {
+		layout@0 {
+			label = "default";
+			mtdids = "nmbm0=nmbm0";
+			mtdparts = "nmbm0:1024k(bl2),512k(u-boot-env),2048k(Factory),2048k(fip),116736k(ubi)";
+		};
+
+		layout@1 {
+			label = "ikuai";
+			mtdids = "nmbm0=nmbm0";
+			mtdparts = "nmbm0:1024k(bl2),512k(u-boot-env),2048k(Factory),2048k(fip),65536k(ubi),256k(panic_oops),16384k(ikuai_cfg),35072k(ikuai_log)";
+		};
+
+		layout@2 {
+			label = "openwrt";
+			mtdids = "nmbm0=nmbm0";
+			mtdparts = "nmbm0:1024k(bl2),512k(u-boot-env),2048k(Factory),2048k(fip),117248k(ubi)";
+		};
+	};
+
 	memory@40000000 {
 		device_type = "memory";
 		reg = <0x40000000 0x20000000>;
